@@ -10,14 +10,57 @@ fetch(API_URL)
 
         resultado.innerHTML = "";
 
+        // ================================
+        // AGRUPAR OS INSCRITOS POR DESTINO
+        // ================================
+
+        const grupos = {};
+
         dados.forEach(inscrito => {
 
-            const linha = document.createElement("p");
+            const destino = inscrito.destino;
 
-            linha.textContent =
-                `${inscrito.qra} — ${inscrito.destino}`;
+            if (!grupos[destino]) {
+                grupos[destino] = [];
+            }
 
-            resultado.appendChild(linha);
+            grupos[destino].push(inscrito);
+
+        });
+
+
+        // ================================
+        // CRIAR OS GRUPOS NA PÁGINA
+        // ================================
+
+        Object.keys(grupos).forEach(destino => {
+
+            const grupo = document.createElement("div");
+
+            const titulo = document.createElement("h2");
+
+            titulo.textContent = `Destino: ${destino}`;
+
+            grupo.appendChild(titulo);
+
+
+            // ================================
+            // LISTAR INSCRITOS DO DESTINO
+            // ================================
+
+            grupos[destino].forEach(inscrito => {
+
+                const linha = document.createElement("p");
+
+                linha.textContent =
+                    `${inscrito.qra} — ${inscrito.graduacao} — ${inscrito.re} — ${inscrito.origem}`;
+
+                grupo.appendChild(linha);
+
+            });
+
+
+            resultado.appendChild(grupo);
 
         });
 
