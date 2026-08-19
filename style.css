@@ -1,14 +1,22 @@
 * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
+
 body {
+
     font-family: Arial, Helvetica, sans-serif;
+
     background: #f3f5f7;
+
     color: #222;
+
     padding: 40px;
+
 }
 
 
@@ -17,49 +25,75 @@ body {
 /* ========================= */
 
 header {
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     gap: 20px;
 
     margin-bottom: 45px;
+
     padding-bottom: 20px;
 
     border-bottom: 3px solid #A61E22;
+
 }
+
 
 .logo img {
+
     width: 150px;
+
     height: auto;
+
 }
 
-header h1 {
-    font-size: 36px;
-    color: #A61E22;
-}
-
-header h3 {
-    margin-top: 6px;
-    color: #555;
-    font-weight: normal;
-}
-
-header p {
-    margin-top: 10px;
-    color: #666;
-    font-size: 15px;
-}
 
 .titulo {
+
     text-align: left;
+
 }
 
-.titulo h1 {
+
+header h1 {
+
+    font-size: 36px;
+
+    color: #A61E22;
+
     margin-bottom: 5px;
+
 }
 
-.titulo h3 {
+
+header h3 {
+
     margin-bottom: 8px;
+
+    color: #555;
+
+    font-weight: normal;
+
+}
+
+
+header p {
+
+    color: #666;
+
+    font-size: 15px;
+
+}
+
+
+header strong {
+
+    color: #222;
+
 }
 
 
@@ -68,33 +102,44 @@ header p {
 /* ========================= */
 
 .container {
-    width: 100%;
+
     max-width: 1800px;
+
     margin: 0 auto;
+
 }
 
 
 /* ========================= */
-/* DESTINOS */
+/* GRUPOS / DESTINOS */
 /* ========================= */
 
 .grupo {
-    width: 100%;
-    margin-top: 20px;
+
+    margin-top: 45px;
+
 }
 
-.grupo:first-of-type {
+
+.grupo:first-child {
+
     margin-top: 0;
+
 }
+
 
 .grupo h2 {
+
     color: #A61E22;
+
     font-size: 28px;
 
-    margin-bottom: 18px;
+    margin-bottom: 12px;
+
     padding-left: 12px;
 
     border-left: 6px solid #A61E22;
+
 }
 
 
@@ -103,9 +148,11 @@ header p {
 /* ========================= */
 
 table {
+
     width: 100%;
 
     border-collapse: collapse;
+
     table-layout: fixed;
 
     background: white;
@@ -113,65 +160,34 @@ table {
     box-shadow: 0 2px 6px rgba(0, 0, 0, .08);
 
     border-radius: 8px;
+
     overflow: hidden;
+
 }
 
-
-/* ========================= */
-/* LARGURA DAS COLUNAS */
-/* ========================= */
-
-.col-class {
-    width: 80px;
-}
-
-.col-post {
-    width: 120px;
-}
-
-.col-re {
-    width: 120px;
-}
-
-.col-nome {
-    width: auto;
-}
-
-.col-eb {
-    width: 170px;
-}
-
-.col-data {
-    width: 150px;
-}
-
-
-/* ========================= */
-/* CABEÇALHO DA TABELA */
-/* ========================= */
 
 thead {
-    display: table-header-group;
 
     background: #A61E22;
+
     color: white;
+
 }
 
+
 th {
+
     padding: 11px 10px;
 
     font-size: 15px;
+
     font-weight: bold;
 
-    text-align: center;
 }
 
 
-/* ========================= */
-/* CÉLULAS */
-/* ========================= */
-
 td {
+
     padding: 11px 10px;
 
     font-size: 14px;
@@ -180,25 +196,75 @@ td {
 
     text-align: center;
 
-    overflow-wrap: break-word;
-    word-wrap: break-word;
 }
 
-td:nth-child(4) {
-    text-align: left;
-}
-
-
-/* ========================= */
-/* LINHAS */
-/* ========================= */
 
 tbody tr:nth-child(even) {
+
     background: #f8f8f8;
+
 }
 
+
 tbody tr:hover {
+
     background: #edf5ff;
+
+}
+
+
+/* ========================= */
+/* COLUNA NOME */
+/* ========================= */
+
+td:nth-child(4) {
+
+    text-align: left;
+
+}
+
+
+/* ========================= */
+/* LARGURA DAS COLUNAS */
+/* ========================= */
+
+th:nth-child(1),
+td:nth-child(1) {
+
+    width: 80px;
+
+}
+
+
+th:nth-child(2),
+td:nth-child(2) {
+
+    width: 120px;
+
+}
+
+
+th:nth-child(3),
+td:nth-child(3) {
+
+    width: 120px;
+
+}
+
+
+th:nth-child(5),
+td:nth-child(5) {
+
+    width: 170px;
+
+}
+
+
+th:nth-child(6),
+td:nth-child(6) {
+
+    width: 150px;
+
 }
 
 
@@ -207,6 +273,7 @@ tbody tr:hover {
 /* ========================= */
 
 .total-inscritos {
+
     margin-top: 10px;
 
     text-align: right;
@@ -214,7 +281,24 @@ tbody tr:hover {
     color: #666;
 
     font-size: 14px;
+
     font-style: italic;
+
+}
+
+
+/* ========================= */
+/* CARREGAMENTO */
+/* ========================= */
+
+.carregando {
+
+    text-align: center;
+
+    color: #666;
+
+    padding: 30px;
+
 }
 
 
@@ -223,9 +307,11 @@ tbody tr:hover {
 /* ========================= */
 
 .inscricao {
-    width: 100%;
 
-    margin-top: 60px;
+    max-width: 1800px;
+
+    margin: 60px auto 0;
+
     padding: 22px;
 
     background: #ffffff;
@@ -233,25 +319,34 @@ tbody tr:hover {
     border-left: 5px solid #A61E22;
 
     box-shadow: 0 2px 6px rgba(0, 0, 0, .08);
+
 }
 
+
 .inscricao h3 {
+
     color: #A61E22;
 
     margin-bottom: 10px;
 
     font-size: 19px;
+
 }
 
+
 .inscricao p {
+
     color: #555;
 
     margin-bottom: 12px;
 
     line-height: 1.5;
+
 }
 
+
 .inscricao a {
+
     color: #0056b3;
 
     font-weight: bold;
@@ -259,10 +354,14 @@ tbody tr:hover {
     text-decoration: none;
 
     word-break: break-all;
+
 }
 
+
 .inscricao a:hover {
+
     text-decoration: underline;
+
 }
 
 
@@ -271,6 +370,7 @@ tbody tr:hover {
 /* ========================= */
 
 footer {
+
     margin-top: 35px;
 
     text-align: right;
@@ -278,6 +378,7 @@ footer {
     color: #777;
 
     font-size: 12px;
+
 }
 
 
@@ -288,20 +389,32 @@ footer {
 @media print {
 
     body {
+
         background: white;
+
         padding: 0;
+
     }
+
 
     .grupo {
+
         page-break-inside: avoid;
+
     }
+
 
     table {
+
         box-shadow: none;
+
     }
 
+
     .inscricao {
+
         box-shadow: none;
+
     }
 
 }
