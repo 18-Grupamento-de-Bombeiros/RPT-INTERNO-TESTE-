@@ -6,9 +6,27 @@ fetch(API_URL)
 
         console.log("Dados recebidos:", dados);
 
+        const resultado = document.getElementById("resultado");
+
+        resultado.innerHTML = "";
+
+        dados.forEach(inscrito => {
+
+            const linha = document.createElement("p");
+
+            linha.textContent =
+                `${inscrito.qra} — ${inscrito.destino}`;
+
+            resultado.appendChild(linha);
+
+        });
+
     })
     .catch(erro => {
 
         console.error("Erro ao carregar os dados:", erro);
+
+        document.getElementById("resultado").textContent =
+            "Erro ao carregar os inscritos.";
 
     });
