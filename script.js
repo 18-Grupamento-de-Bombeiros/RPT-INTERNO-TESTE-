@@ -4,6 +4,25 @@
 
 const API_URL = "https://script.google.com/macros/s/AKfycbwSFAClKtAahYoFylvNuYH2ZPr03pPpQMakrmsVgr6gHnFxpgUkcr6ic0LZylrhY8_m/exec";
 
+
+// ======================================================
+// ANIMAÇÃO - CARREGANDO INSCRIÇÕES
+// ======================================================
+
+const carregando = document.querySelector(".carregando");
+
+let pontos = 0;
+
+const animacao = setInterval(() => {
+
+    pontos = (pontos + 1) % 4;
+
+    carregando.textContent =
+        "Carregando inscrições" + ".".repeat(pontos);
+
+}, 400);
+
+
 // ======================================================
 // BUSCAR OS DADOS
 // ======================================================
@@ -14,6 +33,9 @@ fetch(API_URL)
 
     .then(dados => {
 
+        // Para a animação quando os dados chegam
+        clearInterval(animacao);
+
         console.log("Dados recebidos:", dados);
 
         gerarRPT(dados);
@@ -21,6 +43,9 @@ fetch(API_URL)
     })
 
     .catch(erro => {
+
+        // Para a animação em caso de erro
+        clearInterval(animacao);
 
         console.error("Erro ao carregar os dados:", erro);
 
@@ -105,7 +130,7 @@ function gerarRPT(dados) {
 
 
         // ----------------------------------------------
-        // TÍTULO
+        // TÍTULO DO DESTINO
         // ----------------------------------------------
 
         const titulo = document.createElement("h2");
@@ -138,7 +163,7 @@ function gerarRPT(dados) {
 
                     <th>RE</th>
 
-                    <th>Nome</th>
+                    <th>QRA</th>
 
                     <th>EB Atual</th>
 
@@ -269,20 +294,3 @@ function escaparHTML(texto) {
     return div.innerHTML;
 
 }
-
-// ======================================================
-// CARREGANDO INSCRIÇÕES
-// ======================================================
-
-const carregando = document.querySelector(".carregando");
-
-let pontos = 0;
-
-const animacao = setInterval(() => {
-
-    pontos = (pontos + 1) % 4;
-
-    carregando.textContent =
-        "Carregando inscrições" + ".".repeat(pontos);
-
-}, 400);
