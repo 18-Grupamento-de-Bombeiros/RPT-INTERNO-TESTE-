@@ -120,6 +120,8 @@ header strong {
 
     margin-top: 28px;
 
+    width: fit-content;
+
 }
 
 
@@ -324,6 +326,8 @@ td:nth-child(6) {
     font-size: 12px;
 
     font-style: italic;
+
+    width: 100%;
 
 }
 
