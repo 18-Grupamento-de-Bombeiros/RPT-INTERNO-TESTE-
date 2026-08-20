@@ -33,7 +33,6 @@ fetch(API_URL)
 
     .then(dados => {
 
-        // Para a animação quando os dados chegam
         clearInterval(animacao);
 
         console.log("Dados recebidos:", dados);
@@ -44,7 +43,6 @@ fetch(API_URL)
 
     .catch(erro => {
 
-        // Para a animação em caso de erro
         clearInterval(animacao);
 
         console.error("Erro ao carregar os dados:", erro);
@@ -101,7 +99,7 @@ function gerarRPT(dados) {
 
 
     // ==================================================
-    // CRIAR CADA GRUPO
+    // CRIAR CADA DESTINO
     // ==================================================
 
     destinos.forEach(destino => {
@@ -109,29 +107,89 @@ function gerarRPT(dados) {
         const inscritos = grupos[destino];
 
 
-        // ----------------------------------------------
-        // ORDENAR POR DATA DE INSCRIÇÃO
-        // ----------------------------------------------
+        // ==================================================
+        // SEPARAR POR GRADUAÇÃO
+        // ==================================================
 
-        inscritos.sort((a, b) => {
+        const superiores = [];
 
-            return converterData(a.data) - converterData(b.data);
+        const cabosSoldados = [];
+
+        const outrasGraduacoes = [];
+
+
+        inscritos.forEach(inscrito => {
+
+            const graduacao = normalizarGraduacao(inscrito.graduacao);
+
+
+            // ----------------------------------------------
+            // SUBTENENTES E SARGENTOS
+            // ----------------------------------------------
+
+            if (
+
+                graduacao.includes("SUBTEN") ||
+
+                graduacao.includes("S TEN") ||
+
+                graduacao.includes("SGT") ||
+
+                graduacao.includes("SARGENTO")
+
+            ) {
+
+                superiores.push(inscrito);
+
+            }
+
+
+            // ----------------------------------------------
+            // CABOS E SOLDADOS
+            // ----------------------------------------------
+
+            else if (
+
+                graduacao.includes("CB") ||
+
+                graduacao.includes("CABO") ||
+
+                graduacao.includes("SD") ||
+
+                graduacao.includes("SOLDADO")
+
+            ) {
+
+                cabosSoldados.push(inscrito);
+
+            }
+
+
+            // ----------------------------------------------
+            // OUTRAS GRADUAÇÕES
+            // ----------------------------------------------
+
+            else {
+
+                outrasGraduacoes.push(inscrito);
+
+            }
 
         });
 
 
-        // ----------------------------------------------
-        // CRIAR CONTAINER DO DESTINO
-        // ----------------------------------------------
+        // ==================================================
+        // CONTAINER DO DESTINO
+        // ==================================================
 
         const grupo = document.createElement("div");
 
         grupo.className = "grupo";
 
 
-        // ----------------------------------------------
+        // ==================================================
         // TÍTULO DO DESTINO
-        // ----------------------------------------------
+        // ==================================================
 
         const titulo = document.createElement("h2");
 
@@ -140,98 +198,61 @@ function gerarRPT(dados) {
         grupo.appendChild(titulo);
 
 
-        // ----------------------------------------------
-        // CRIAR TABELA
-        // ----------------------------------------------
+        // ==================================================
+        // SARGENTOS E SUBTENENTES
+        // ==================================================
 
-        const tabela = document.createElement("table");
+        if (superiores.length > 0) {
 
+            criarTabelaGraduacao(
 
-        // ----------------------------------------------
-        // CABEÇALHO
-        // ----------------------------------------------
+                grupo,
 
-        tabela.innerHTML = `
+                "Subtenentes e Sargentos",
 
-            <thead>
+                superiores
 
-                <tr>
+            );
 
-                    <th>Class.</th>
-
-                    <th>Post/Grad</th>
-
-                    <th>RE</th>
-
-                    <th>QRA</th>
-
-                    <th>EB Atual</th>
-
-                    <th>Data de Inscrição</th>
-
-                </tr>
-
-            </thead>
-
-            <tbody></tbody>
-
-        `;
+        }
 
 
-        const tbody = tabela.querySelector("tbody");
+        // ==================================================
+        // CABOS E SOLDADOS
+        // ==================================================
+
+        if (cabosSoldados.length > 0) {
+
+            criarTabelaGraduacao(
+
+                grupo,
+
+                "Cabos e Soldados",
+
+                cabosSoldados
+
+            );
+
+        }
 
 
-        // ----------------------------------------------
-        // INSCRITOS
-        // ----------------------------------------------
+        // ==================================================
+        // OUTRAS GRADUAÇÕES
+        // ==================================================
 
-        inscritos.forEach((inscrito, indice) => {
+        if (outrasGraduacoes.length > 0) {
 
-            const linha = document.createElement("tr");
+            criarTabelaGraduacao(
 
+                grupo,
 
-            linha.innerHTML = `
+                "Outras graduações",
 
-                <td>${indice + 1}º</td>
+                outrasGraduacoes
 
-                <td>${escaparHTML(inscrito.graduacao)}</td>
+            );
 
-                <td>${escaparHTML(inscrito.re)}</td>
-
-                <td>${escaparHTML(inscrito.qra)}</td>
-
-                <td>${escaparHTML(inscrito.origem)}</td>
-
-                <td>${formatarData(inscrito.data)}</td>
-
-            `;
-
-
-            tbody.appendChild(linha);
-
-        });
-
-
-        grupo.appendChild(tabela);
-
-
-        // ----------------------------------------------
-        // TOTAL DE INSCRITOS
-        // ----------------------------------------------
-
-        const total = document.createElement("div");
-
-        total.className = "total-inscritos";
-
-        total.innerHTML = `
-
-            Total de inscritos:
-            <strong>${inscritos.length}</strong>
-
-        `;
-
-
-        grupo.appendChild(total);
+        }
 
 
         resultado.appendChild(grupo);
@@ -245,6 +266,152 @@ function gerarRPT(dados) {
 
     document.getElementById("data-atualizacao").textContent =
         new Date().toLocaleDateString("pt-BR");
+
+}
+
+
+// ======================================================
+// CRIAR TABELA DE CADA GRUPO
+// ======================================================
+
+function criarTabelaGraduacao(container, tituloGrupo, inscritos) {
+
+
+    // ==================================================
+    // ORDENAR POR DATA DE INSCRIÇÃO
+    // ==================================================
+
+    inscritos.sort((a, b) => {
+
+        return converterData(a.data) - converterData(b.data);
+
+    });
+
+
+    // ==================================================
+    // TÍTULO DO GRUPO
+    // ==================================================
+
+    const subtitulo = document.createElement("h3");
+
+    subtitulo.className = "subgrupo-titulo";
+
+    subtitulo.textContent = tituloGrupo;
+
+    container.appendChild(subtitulo);
+
+
+    // ==================================================
+    // CRIAR TABELA
+    // ==================================================
+
+    const tabela = document.createElement("table");
+
+
+    // ==================================================
+    // CABEÇALHO
+    // ==================================================
+
+    tabela.innerHTML = `
+
+        <thead>
+
+            <tr>
+
+                <th>Class.</th>
+
+                <th>Post/Grad</th>
+
+                <th>RE</th>
+
+                <th>QRA</th>
+
+                <th>EB Atual</th>
+
+                <th>Data de Inscrição</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody></tbody>
+
+    `;
+
+
+    const tbody = tabela.querySelector("tbody");
+
+
+    // ==================================================
+    // INSCRITOS
+    // ==================================================
+
+    inscritos.forEach((inscrito, indice) => {
+
+        const linha = document.createElement("tr");
+
+
+        linha.innerHTML = `
+
+            <td>${indice + 1}º</td>
+
+            <td>${escaparHTML(inscrito.graduacao)}</td>
+
+            <td>${escaparHTML(inscrito.re)}</td>
+
+            <td>${escaparHTML(inscrito.qra)}</td>
+
+            <td>${escaparHTML(inscrito.origem)}</td>
+
+            <td>${formatarData(inscrito.data)}</td>
+
+        `;
+
+
+        tbody.appendChild(linha);
+
+    });
+
+
+    container.appendChild(tabela);
+
+
+    // ==================================================
+    // TOTAL DO GRUPO
+    // ==================================================
+
+    const total = document.createElement("div");
+
+    total.className = "total-inscritos";
+
+    total.innerHTML = `
+
+        Total de inscritos:
+        <strong>${inscritos.length}</strong>
+
+    `;
+
+
+    container.appendChild(total);
+
+}
+
+
+// ======================================================
+// NORMALIZAR GRADUAÇÃO
+// ======================================================
+
+function normalizarGraduacao(graduacao) {
+
+    return String(graduacao || "")
+
+        .normalize("NFD")
+
+        .replace(/[\u0300-\u036f]/g, "")
+
+        .toUpperCase()
+
+        .trim();
 
 }
 
