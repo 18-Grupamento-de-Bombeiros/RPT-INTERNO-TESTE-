@@ -120,7 +120,9 @@ header strong {
 
     margin-top: 28px;
 
-    width: fit-content;
+    display: table;
+
+    width: auto;
 
 }
 
@@ -155,13 +157,13 @@ table {
 
     width: auto;
 
-    min-width: 850px;
+    min-width: 0;
 
-    max-width: 100%;
+    max-width: none;
 
     border-collapse: collapse;
 
-    table-layout: fixed;
+    table-layout: auto;
 
     background: white;
 
@@ -319,6 +321,8 @@ td:nth-child(6) {
 
     margin-top: 6px;
 
+    width: 100%;
+
     text-align: right;
 
     color: #666;
@@ -326,8 +330,6 @@ td:nth-child(6) {
     font-size: 12px;
 
     font-style: italic;
-
-    width: 100%;
 
 }
 
