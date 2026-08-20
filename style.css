@@ -120,7 +120,7 @@ header strong {
 
     margin-top: 40px;
 
-    width: 800px;
+    width: 100%;
 
 }
 
@@ -136,13 +136,13 @@ header strong {
 
     color: #A61E22;
 
-    font-size: 25px;
+    font-size: 27px;
 
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 
-    padding-left: 10px;
+    padding-left: 11px;
 
-    border-left: 5px solid #A61E22;
+    border-left: 6px solid #A61E22;
 
 }
 
@@ -153,7 +153,7 @@ header strong {
 
 table {
 
-    width: 800px;
+    width: 100%;
 
     border-collapse: collapse;
 
@@ -181,11 +181,13 @@ thead {
 
 th {
 
-    padding: 9px 8px;
+    padding: 11px 10px;
 
-    font-size: 14px;
+    font-size: 15px;
 
     font-weight: bold;
+
+    text-align: center;
 
     white-space: nowrap;
 
@@ -194,15 +196,22 @@ th {
 
 td {
 
-    padding: 8px 8px;
+    padding: 11px 10px;
 
-    font-size: 14px;
+    font-size: 15px;
 
     border-bottom: 1px solid #ddd;
 
     text-align: center;
 
     white-space: nowrap;
+
+}
+
+
+tbody tr {
+
+    height: 42px;
 
 }
 
@@ -222,77 +231,65 @@ tbody tr:hover {
 
 
 /* ========================= */
-/* QRA */
+/* TODAS AS COLUNAS */
 /* ========================= */
-
-th:nth-child(4),
-td:nth-child(4) {
-
-    text-align: left;
-
-}
-
-
-/* ========================= */
-/* LARGURA DAS COLUNAS */
-/* ========================= */
-
-/* Classificação */
 
 th:nth-child(1),
 td:nth-child(1) {
 
-    width: 65px;
+    width: 9%;
+
+    text-align: center;
 
 }
 
-
-/* Posto / Graduação */
 
 th:nth-child(2),
 td:nth-child(2) {
 
-    width: 135px;
+    width: 18%;
+
+    text-align: center;
 
 }
 
-
-/* RE */
 
 th:nth-child(3),
 td:nth-child(3) {
 
-    width: 125px;
+    width: 17%;
+
+    text-align: center;
 
 }
 
-
-/* QRA */
 
 th:nth-child(4),
 td:nth-child(4) {
 
-    width: 110px;
+    width: 17%;
+
+    text-align: center;
 
 }
 
-
-/* EB Atual */
 
 th:nth-child(5),
 td:nth-child(5) {
 
-    width: 150px;
+    width: 19%;
+
+    text-align: center;
 
 }
 
 
-/* Data */
-
 th:nth-child(6),
 td:nth-child(6) {
 
-    width: 150px;
+    width: 20%;
+
+    text-align: center;
 
 }
 
@@ -303,9 +300,9 @@ td:nth-child(6) {
 
 .total-inscritos {
 
-    width: 800px;
+    width: 100%;
 
-    margin-top: 7px;
+    margin-top: 8px;
 
     text-align: right;
 
@@ -330,7 +327,7 @@ td:nth-child(6) {
 
     padding: 30px;
 
-    font-size: 15px;
+    font-size: 16px;
 
 }
 
