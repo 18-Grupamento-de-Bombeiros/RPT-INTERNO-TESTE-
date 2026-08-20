@@ -15,7 +15,7 @@ body {
 
     color: #222;
 
-    padding: 30px;
+    padding: 25px;
 
 }
 
@@ -32,11 +32,11 @@ header {
 
     align-items: center;
 
-    gap: 20px;
+    gap: 18px;
 
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 
-    padding-bottom: 18px;
+    padding-bottom: 15px;
 
     border-bottom: 3px solid #A61E22;
 
@@ -45,7 +45,7 @@ header {
 
 .logo img {
 
-    width: 135px;
+    width: 125px;
 
     height: auto;
 
@@ -61,22 +61,24 @@ header {
 
 header h1 {
 
-    font-size: 34px;
+    font-size: 32px;
 
     color: #A61E22;
 
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 
 }
 
 
 header h3 {
 
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 
     color: #555;
 
     font-weight: normal;
+
+    font-size: 17px;
 
 }
 
@@ -85,7 +87,7 @@ header p {
 
     color: #666;
 
-    font-size: 14px;
+    font-size: 13px;
 
 }
 
@@ -103,7 +105,7 @@ header strong {
 
 .container {
 
-    max-width: 1800px;
+    max-width: 1250px;
 
     margin: 0 auto;
 
@@ -116,7 +118,7 @@ header strong {
 
 .grupo {
 
-    margin-top: 32px;
+    margin-top: 28px;
 
 }
 
@@ -132,11 +134,11 @@ header strong {
 
     color: #A61E22;
 
-    font-size: 25px;
+    font-size: 23px;
 
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 
-    padding-left: 10px;
+    padding-left: 9px;
 
     border-left: 5px solid #A61E22;
 
@@ -149,17 +151,21 @@ header strong {
 
 table {
 
-    width: 100%;
+    width: auto;
+
+    min-width: 850px;
+
+    max-width: 100%;
 
     border-collapse: collapse;
 
-    table-layout: fixed;
+    table-layout: auto;
 
     background: white;
 
     box-shadow: 0 2px 6px rgba(0, 0, 0, .08);
 
-    border-radius: 8px;
+    border-radius: 7px;
 
     overflow: hidden;
 
@@ -177,24 +183,28 @@ thead {
 
 th {
 
-    padding: 9px 8px;
+    padding: 7px 9px;
 
-    font-size: 14px;
+    font-size: 13px;
 
     font-weight: bold;
+
+    white-space: nowrap;
 
 }
 
 
 td {
 
-    padding: 8px 8px;
+    padding: 6px 9px;
 
     font-size: 13px;
 
     border-bottom: 1px solid #ddd;
 
     text-align: center;
+
+    white-space: nowrap;
 
 }
 
@@ -233,7 +243,7 @@ td:nth-child(4) {
 th:nth-child(1),
 td:nth-child(1) {
 
-    width: 60px;
+    width: 55px;
 
 }
 
@@ -253,7 +263,7 @@ td:nth-child(2) {
 th:nth-child(3),
 td:nth-child(3) {
 
-    width: 105px;
+    width: 100px;
 
 }
 
@@ -263,7 +273,7 @@ td:nth-child(3) {
 th:nth-child(4),
 td:nth-child(4) {
 
-    width: 100px;
+    width: 85px;
 
 }
 
@@ -273,7 +283,7 @@ td:nth-child(4) {
 th:nth-child(5),
 td:nth-child(5) {
 
-    width: 130px;
+    width: 110px;
 
 }
 
@@ -283,7 +293,7 @@ td:nth-child(5) {
 th:nth-child(6),
 td:nth-child(6) {
 
-    width: 125px;
+    width: 115px;
 
 }
 
@@ -294,13 +304,13 @@ td:nth-child(6) {
 
 .total-inscritos {
 
-    margin-top: 8px;
+    margin-top: 6px;
 
     text-align: right;
 
     color: #666;
 
-    font-size: 13px;
+    font-size: 12px;
 
     font-style: italic;
 
@@ -317,9 +327,9 @@ td:nth-child(6) {
 
     color: #666;
 
-    padding: 30px;
+    padding: 25px;
 
-    font-size: 15px;
+    font-size: 14px;
 
 }
 
@@ -330,11 +340,11 @@ td:nth-child(6) {
 
 .inscricao {
 
-    max-width: 1800px;
+    max-width: 1250px;
 
-    margin: 50px auto 0;
+    margin: 40px auto 0;
 
-    padding: 20px;
+    padding: 18px;
 
     background: #ffffff;
 
@@ -349,9 +359,9 @@ td:nth-child(6) {
 
     color: #A61E22;
 
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 
-    font-size: 18px;
+    font-size: 17px;
 
 }
 
@@ -360,9 +370,9 @@ td:nth-child(6) {
 
     color: #555;
 
-    margin-bottom: 10px;
+    margin-bottom: 9px;
 
-    line-height: 1.5;
+    line-height: 1.4;
 
 }
 
@@ -393,13 +403,13 @@ td:nth-child(6) {
 
 footer {
 
-    margin-top: 30px;
+    margin-top: 25px;
 
     text-align: right;
 
     color: #777;
 
-    font-size: 12px;
+    font-size: 11px;
 
 }
 
