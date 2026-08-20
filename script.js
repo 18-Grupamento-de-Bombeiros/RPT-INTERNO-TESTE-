@@ -269,3 +269,20 @@ function escaparHTML(texto) {
     return div.innerHTML;
 
 }
+
+// ======================================================
+// CARREGANDO INSCRIÇÕES
+// ======================================================
+
+const carregando = document.querySelector(".carregando");
+
+let pontos = 0;
+
+const animacao = setInterval(() => {
+
+    pontos = (pontos + 1) % 4;
+
+    carregando.textContent =
+        "Carregando inscrições" + ".".repeat(pontos);
+
+}, 400);
