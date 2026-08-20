@@ -159,7 +159,7 @@ table {
 
     border-collapse: collapse;
 
-    table-layout: auto;
+    table-layout: fixed;
 
     background: white;
 
@@ -183,7 +183,7 @@ thead {
 
 th {
 
-    padding: 7px 9px;
+    padding: 7px 8px;
 
     font-size: 13px;
 
@@ -196,7 +196,7 @@ th {
 
 td {
 
-    padding: 6px 9px;
+    padding: 6px 8px;
 
     font-size: 13px;
 
@@ -227,9 +227,18 @@ tbody tr:hover {
 /* COLUNA QRA */
 /* ========================= */
 
+th:nth-child(4),
 td:nth-child(4) {
 
+    width: 70px;
+
+    max-width: 70px;
+
     text-align: left;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
 
 }
 
@@ -273,7 +282,9 @@ td:nth-child(3) {
 th:nth-child(4),
 td:nth-child(4) {
 
-    width: 85px;
+    width: 70px;
+
+    max-width: 70px;
 
 }
 
